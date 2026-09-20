@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Пауза перед лентой. Замечай, почему хочется открыть соцсети.">
+  <title>пауза — прежде чем нырнуть в контент</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./marck-script.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header><a class="brand" href="#" aria-label="Пауза, главная">пауза<span class="pause" aria-hidden="true"><i></i><i></i></span></a><button class="analysis-link hand" id="open-analysis">Анализ</button></header>
+    <main id="entry-view">
+      <p class="intro">Прежде чем нырнуть в контент</p>
+      <h1>От чего ты<br>сейчас бежишь?</h1>
+      <form id="entry-form">
+        <label class="sr-only" for="note">Пару слов о том, что сейчас чувствуешь</label>
+        <textarea id="note" class="hand" maxlength="3000" placeholder="Пару слов о том, что сейчас чувствуешь…"></textarea>
+        <fieldset><legend>Или выбери причину</legend><div class="reasons">
+          <button type="button" class="reason hand dark" aria-pressed="false">Я по делу</button>
+          <button type="button" class="reason hand moss" aria-pressed="false">От сложной задачи</button>
+          <button type="button" class="reason hand cream" aria-pressed="false">От неприятного дела</button>
+          <button type="button" class="reason hand rose" aria-pressed="false">От скуки</button>
+          <button type="button" class="reason hand teal" aria-pressed="false">Хочется радости</button>
+          <button type="button" class="reason hand dark" aria-pressed="false">Мне одиноко</button>
+        </div></fieldset>
+        <p id="form-message" role="status" class="message" hidden></p>
+        <button class="save" type="submit">Сохранить запись</button>
+        <button class="reconsider" type="button" id="reconsider">Передумала открывать</button>
+      </form>
+    </main>
+    <section id="analysis-view" hidden aria-labelledby="analysis-title">
+      <button class="back" id="back">← Назад</button>
+      <h1 id="analysis-title">Твои паузы</h1>
+      <p class="storage-note">Записи хранятся только в этом браузере. Очистка данных браузера удалит их.</p>
+      <div id="summary"></div><div id="history"></div>
+      <button class="save export" id="export" hidden>Скачать записи</button>
+    </section>
+    <section id="success-view" hidden aria-labelledby="success-title">
+      <h1 id="success-title" tabindex="-1">Запись сохранена</h1><p id="success-copy"></p>
+      <button class="save" id="again">Ещё одна пауза</button>
+      <button class="reconsider" id="see-analysis">Посмотреть анализ</button>
+    </section>
+  </div>
+</body>
+</html>
