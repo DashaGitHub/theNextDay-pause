@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Gogol";
-  src: url("./gogol-regular.ttf") format("truetype");
+  font-family: "Bad Script";
+  src: url("./bad-script.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -22,6 +22,7 @@ html { background: #fff; }
 
 body {
   margin: 0;
+  min-height: 100svh;
   background: #fff;
   color: var(--green);
   font-family: Arial, Helvetica, sans-serif;
@@ -42,15 +43,15 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
 .page {
   width: min(100%, 480px);
   margin: 0 auto;
-  padding: 28px 22px max(28px, env(safe-area-inset-bottom));
+  padding: max(18px, env(safe-area-inset-top)) 18px max(10px, env(safe-area-inset-bottom));
 }
 
 header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 46px;
+  margin-bottom: 20px;
 }
 
 .brand {
@@ -58,100 +59,117 @@ header {
   align-items: center;
   gap: 10px;
   color: var(--green);
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -1.4px;
   text-decoration: none;
 }
 
-.pause { display: flex; gap: 5px; }
+.pause {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: 26px;
+  gap: 5px;
+  transform: translateY(1px);
+}
 .pause i {
   display: block;
   width: 5px;
-  height: 25px;
+  height: 22px;
   border-radius: 4px;
   background: var(--rose);
 }
 
 .hand {
-  font-family: "Gogol", "Segoe Print", cursive;
+  font-family: "Bad Script", "Segoe Print", cursive;
   font-style: normal;
   font-weight: 400;
 }
 
 .analysis-link {
   min-height: 44px;
-  margin-top: -7px;
+  margin: 0;
   padding: 0;
   border: 0;
   background: none;
   color: var(--teal);
-  font-size: 32px;
-  line-height: 1.25;
+  font-size: 27px;
+  line-height: 1;
 }
 
 .intro {
-  margin: 0 0 14px;
-  font-size: 17px;
-  line-height: 1.45;
+  margin: 0 0 7px;
+  font-size: 16px;
+  line-height: 1.3;
 }
 
 h1 {
-  margin: 0 0 28px;
+  margin: 0 0 16px;
   color: var(--green);
-  font-size: clamp(38px, 10.2vw, 48px);
+  font-size: clamp(34px, 9.4vw, 43px);
   font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -1.8px;
+  line-height: 1.02;
+  letter-spacing: -1.5px;
 }
 
 textarea {
   display: block;
   width: 100%;
-  min-height: 178px;
-  padding: 16px 18px;
-  resize: vertical;
+  height: 58px;
+  min-height: 58px;
+  padding: 10px 14px;
+  resize: none;
+  overflow: hidden;
   border: 1.5px solid var(--green);
   border-radius: var(--edge-a);
   background: #fff;
   color: var(--teal);
-  font-size: 27px !important;
-  line-height: 1.35;
+  font-size: 21px !important;
+  line-height: 1.3;
+  transition: height .24s var(--ease), border-color .18s var(--ease);
 }
 
 textarea::placeholder { color: var(--teal); opacity: 1; }
+textarea:focus,
+textarea:not(:placeholder-shown) {
+  height: 150px;
+  overflow: auto;
+  resize: vertical;
+}
 
 fieldset {
   min-width: 0;
-  margin: 28px 0 24px;
+  margin: 14px 0 12px;
   padding: 0;
   border: 0;
 }
 
 legend {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
   padding: 0;
-  font-size: 17px;
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 1.3;
 }
 
 .reasons {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 11px;
+  gap: 7px 8px;
 }
 
 .reason {
   position: relative;
   min-width: 0;
   width: 100%;
-  min-height: 78px;
-  padding: 10px 16px;
+  min-height: 52px;
+  height: 52px;
+  padding: 5px 12px;
   border: 0;
   border-radius: var(--edge-a);
-  font-size: 26px;
-  line-height: .92;
+  font-size: 20px;
+  line-height: 1.08;
   text-align: left;
   transition: transform .18s var(--ease), box-shadow .18s var(--ease);
 }
@@ -172,13 +190,13 @@ legend {
 .save {
   display: block;
   width: 100%;
-  min-height: 62px;
-  padding: 13px 16px;
+  min-height: 50px;
+  padding: 10px 16px;
   border: 1.5px solid var(--green);
   border-radius: var(--edge-a);
   background: #fff;
   color: var(--green);
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1.3;
   transition: transform .18s var(--ease);
@@ -187,12 +205,12 @@ legend {
 .reconsider {
   display: block;
   width: 100%;
-  min-height: 52px;
-  padding: 18px 0 4px;
+  min-height: 42px;
+  padding: 10px 0 0;
   border: 0;
   background: none;
   color: var(--green);
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1.3;
 }
@@ -218,14 +236,21 @@ legend {
 #success-copy { margin: 0 0 40px; font-size: 18px; line-height: 1.5; }
 
 @media (max-width: 360px) {
-  .page { padding-right: 16px; padding-left: 16px; }
-  .brand { font-size: 34px; }
-  .analysis-link { font-size: 29px; }
-  h1 { font-size: 37px; }
-  textarea { min-height: 158px; font-size: 24px !important; }
-  .reason { min-height: 72px; padding: 9px 12px; font-size: 23px; }
-  .save, .reconsider { font-size: 20px; }
+  .page { padding-right: 14px; padding-left: 14px; }
+  .brand { font-size: 33px; }
+  .analysis-link { font-size: 25px; }
+  h1 { font-size: 33px; }
+  .reason { padding-right: 9px; padding-left: 9px; font-size: 18px; }
+  .save, .reconsider { font-size: 18px; }
 }
 
-@media (min-width: 700px) { .page { padding-top: 40px; } }
+@media (max-height: 650px) {
+  .page { padding-top: 12px; }
+  header { margin-bottom: 12px; }
+  h1 { margin-bottom: 12px; font-size: 32px; }
+  fieldset { margin-top: 10px; margin-bottom: 8px; }
+  .reason { min-height: 48px; height: 48px; }
+}
+
+@media (min-width: 700px) { .page { padding-top: 32px; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

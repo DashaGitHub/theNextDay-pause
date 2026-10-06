@@ -12,4 +12,4 @@
 
 Загрузить содержимое этой папки в репозиторий. В Settings → Pages выбрать Deploy from a branch, ветку main, папку / (root).
 
-Шрифт Gogol: Gennady Fridman / ParaType, SIL Open Font License 1.1. Цвета и тексты — по согласованному макету.
+Шрифт Bad Script: Google Fonts, SIL Open Font License 1.1. Цвета и тексты — по согласованному макету.
